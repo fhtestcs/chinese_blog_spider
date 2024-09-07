@@ -33,9 +33,11 @@ FEED_TEMPLATE='''<?xml version="1.0" encoding="UTF-8"?>
 <opml version="2.0">
     <body>
         <!-- category -->
-        {% for category, items in data.items() %}
+        {% for category, items in data.items() -%}
         <outline text="{{ category }}">
-            {%for blog in items %}<outline text="{{blog[0]}}" type="rss" htmlUrl="{{blog[1]}}" xmlUrl="{{blog[2]}}"/>{% endfor %}
+            {%for blog in items -%}
+            <outline text="{{blog[0]}}" type="rss" htmlUrl="{{blog[1]}}" xmlUrl="{{blog[2]}}"/>
+            {% endfor -%}
         </outline>
         {% endfor %}
     </body>
